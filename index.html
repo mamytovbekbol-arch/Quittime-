@@ -132,7 +132,7 @@ a{color:inherit}
 <p>В зале есть:<br>🎤 Профессиональное караоке<br>💃🏻 Просторный танцпол<br>🎲 Настольные игры<br>🍽️ Еду и напитки можно принести с собой или заказать у нас. Одноразовую посуду и приборы даём бесплатно.</p></div>
 <div class="card"><h3>Заявка на бронь</h3>
 <form id="f">
-<label>Что бронируем<select id="p"><option value="cab">Кабинка (до 4 гостей, от 2 часов)</option><option value="hall">Большой зал (1–15 гостей)</option></select></label>
+<label>Что бронируем<select id="p"><option value="cab">Кабинка (до 4 гостей, от 2 часов)</option><option value="hall">Большой зал (1–25 гостей)</option></select></label>
 <label>Имя, на кого бронь<input id="n" required placeholder="Ваше имя"></label>
 <label>Дата<input id="d" type="date" required></label>
 <div class="two"><label>Начало<input id="t" type="time" required value="18:00"></label>
@@ -190,7 +190,7 @@ $("#glist").innerHTML=G.map(g=>`<div class="card game"><b>${g[0]}</b></div>`).jo
 [["🎲","Настольные игры","Выбор игр для компании — спросите у администратора."],["🃏","Для двоих и для компании","Подберём игру под количество гостей."],["🎯","Играйте в кабинке","Столик и мягкий диван уже ждут."]].forEach(([i,t,d])=>$("#blist").insertAdjacentHTML("beforeend",`<div class="card"><div class="ico">${i}</div><h3>${t}</h3><p>${d}</p></div>`));
 
 // Бронь
-function fillG(){const h=$("#p").value==="hall",lo=1,mx=h?15:4;$("#g").innerHTML="";for(let i=lo;i<=mx;i++)$("#g").insertAdjacentHTML("beforeend",`<option value="${i}">${i}</option>`)}
+function fillG(){const h=$("#p").value==="hall",lo=1,mx=h?25:4;$("#g").innerHTML="";for(let i=lo;i<=mx;i++)$("#g").insertAdjacentHTML("beforeend",`<option value="${i}">${i}</option>`)}
 $("#d").min=new Date().toISOString().slice(0,10);
 function calc(){const hall=$("#p").value==="hall",a=$("#t").value.split(":").map(Number),b=$("#t2").value.split(":").map(Number),d=$("#d").value;
  const s0=a[0]*60+a[1];let m=b[0]*60+b[1]-s0;if(m<=0)m+=1440;
